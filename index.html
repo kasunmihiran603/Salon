@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salon Oma</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#fffaf5;
+      color:#333;
+    }
+
+    h1,h2,h3{
+      font-family:'Playfair Display', serif;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    section{
+      padding:80px 10%;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:20px 10%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      background:white;
+      z-index:1000;
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .logo{
+      font-size:32px;
+      font-weight:700;
+      color:#6d4c41;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav ul li a{
+      color:#333;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#b08968;
+    }
+
+    /* HERO */
+
+    .hero{
+  height:100vh;
+  background:
+  linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+  url('img1.png');
+
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  color:white;
+}
+
+.hero-content{
+  padding-left:40px;
+  padding-top:260px;
+  max-width:550px;
+}
+
+.hero h1{
+  font-size:65px;
+  line-height:1.1;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:20px;
+  line-height:1.8;
+  margin-bottom:20px;
+}
+
+.hero-buttons{
+  margin-top:50px;
+  display:flex;
+  gap:20px;
+}
+
+.btn{
+  background:#c89b73;
+  color:white;
+  padding:14px 30px;
+  border-radius:50px;
+  font-weight:500;
+}
+
+.btn:hover{
+  background:#8d6e63;
+}
+
+    /* ABOUT */
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:20px;
+    }
+
+    .section-title{
+      font-size:42px;
+      margin-bottom:20px;
+      color:#6d4c41;
+    }
+
+    .about p{
+      line-height:1.9;
+      margin-bottom:20px;
+    }
+
+    /* SERVICES */
+
+    .services{
+      background:#f8f1eb;
+      text-align:center;
+    }
+
+    .service-grid{
+      margin-top:50px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .service-card{
+      background:white;
+      padding:35px;
+      border-radius:20px;
+      transition:0.3s;
+      box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .service-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .service-card h3{
+      margin-bottom:15px;
+      color:#6d4c41;
+    }
+
+    /* WHY US */
+
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+      margin-top:50px;
+    }
+
+    .why-card{
+      padding:30px;
+      background:#fff;
+      border-radius:20px;
+      text-align:center;
+      box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    /* GALLERY */
+
+    .gallery{
+      background:#f8f1eb;
+      text-align:center;
+    }
+
+    .gallery-grid{
+      margin-top:40px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .gallery-grid img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+      border-radius:20px;
+    }
+
+    /* PRICING */
+
+    .pricing-table{
+      width:100%;
+      margin-top:40px;
+      border-collapse:collapse;
+    }
+
+    .pricing-table tr{
+      border-bottom:1px solid #ddd;
+    }
+
+    .pricing-table td{
+      padding:20px;
+      font-size:18px;
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonials{
+      background:#f8f1eb;
+      text-align:center;
+    }
+
+    .testimonial-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+      margin-top:40px;
+    }
+
+    .testimonial-card{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    /* BOOKING */
+
+    .booking form{
+      margin-top:40px;
+      display:grid;
+      gap:20px;
+    }
+
+    .booking input,
+    .booking select,
+    .booking textarea{
+      padding:15px;
+      border:1px solid #ddd;
+      border-radius:10px;
+      font-size:16px;
+      width:100%;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      background:#2c2c2c;
+      color:white;
+      text-align:center;
+    }
+
+    .contact p{
+      margin:10px 0;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      background:#1d1d1d;
+      color:#aaa;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:48px;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+
+      nav ul{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="logo">Salon Oma</div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#booking">Booking</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    
+
+    <div class="hero-buttons">
+      <a href="#booking" class="btn">Book Appointment</a>
+      <a href="#services" class="btn">View Services</a>
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+
+    <img src="img2.png" alt="Salon">
+
+    <div>
+
+      <h2 class="section-title">About Salon Oma</h2>
+
+      <p>
+        Salon Oma offers premium beauty and hair care services in a relaxing and luxurious environment.
+        Our professional stylists are dedicated to bringing out your natural beauty with modern trends and high-quality products.
+      </p>
+
+      <p>
+        From hair styling to bridal makeup, we provide complete beauty solutions tailored specially for you.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section class="services" id="services">
+
+    <h2 class="section-title">Our Services</h2>
+
+    <div class="service-grid">
+
+      <div class="service-card">
+        <h3>Hair Styling</h3>
+        <p>Hair cuts, coloring, keratin, straightening and hair spa treatments.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Bridal Makeup</h3>
+        <p>Luxury bridal and party makeup for your special occasions.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Facial Treatments</h3>
+        <p>Professional facials and skincare solutions for glowing skin.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Nail Care</h3>
+        <p>Manicure, pedicure, gel polish and nail art designs.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Waxing</h3>
+        <p>Clean and smooth waxing services with premium products.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Eyebrow & Lashes</h3>
+        <p>Threading, eyebrow shaping and eyelash extensions.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- WHY US -->
+
+  <section>
+
+    <h2 class="section-title" style="text-align:center;">Why Choose Us</h2>
+
+    <div class="why-grid">
+
+      <div class="why-card">
+        <h3>Professional Stylists</h3>
+      </div>
+
+      <div class="why-card">
+        <h3>Premium Products</h3>
+      </div>
+
+      <div class="why-card">
+        <h3>Affordable Prices</h3>
+      </div>
+
+      <div class="why-card">
+        <h3>Relaxing Environment</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+
+  <section class="gallery" id="gallery">
+
+    <h2 class="section-title">Gallery</h2>
+
+    <div class="gallery-grid">
+
+      <img src="88 (2).png">
+      <img src="99.png">
+      <img src="img5.png">
+      <img src="img77.png">
+
+    </div>
+
+  </section>
+
+  <!-- PRICING -->
+
+  <section>
+
+    <h2 class="section-title" style="text-align:center;">Pricing</h2>
+
+    <table class="pricing-table">
+
+      <tr>
+        <td>Hair Cut</td>
+        <td>Rs.2500</td>
+      </tr>
+
+      <tr>
+        <td>Hair Coloring</td>
+        <td>Rs.6000</td>
+      </tr>
+
+      <tr>
+        <td>Facial Treatment</td>
+        <td>Rs.4000</td>
+      </tr>
+
+      <tr>
+        <td>Bridal Makeup</td>
+        <td>Rs.15000</td>
+      </tr>
+
+    </table>
+
+  </section>
+
+  <!-- TESTIMONIALS -->
+
+  <section class="testimonials">
+
+    <h2 class="section-title">What Our Clients Say</h2>
+
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <p>
+          “Amazing service and very friendly staff.
+          Highly recommended!”
+        </p>
+      </div>
+
+      <div class="testimonial-card">
+        <p>
+          “Best salon experience I’ve ever had.
+          Beautiful atmosphere and professional work.”
+        </p>
+      </div>
+
+      <div class="testimonial-card">
+        <p>
+          “Loved my bridal makeup. Thank you Salon Oma!”
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BOOKING -->
+
+  <section class="booking" id="booking">
+
+    <h2 class="section-title" style="text-align:center;">
+      Book Appointment
+    </h2>
+
+    <form>
+
+      <input type="text" placeholder="Your Name">
+
+      <input type="tel" placeholder="Phone Number">
+
+      <select>
+        <option>Select Service</option>
+        <option>Hair Cut</option>
+        <option>Hair Coloring</option>
+        <option>Facial</option>
+        <option>Bridal Makeup</option>
+      </select>
+
+      <input type="date">
+
+      <textarea rows="5" placeholder="Message"></textarea>
+
+      <button class="btn">Book Now</button>
+
+    </form>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+
+    <h2 class="section-title" style="color:white;">
+      Contact Us
+    </h2>
+
+    <p>📍 Kesbewa, Sri Lanka</p>
+    <p>📞 +94 71 234 5678</p>
+    <p>✉ salonoma@gmail.com</p>
+
+  </section>
+
+  <footer>
+    © 2026 Salon Oma. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
